@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sdt.commonservice"
+    android:installLocation="internalOnly"
+    android:sharedUserId="com.sdt.sdtShare">
+
+    <uses-permission android:name="com.sdt.conmmonservice.mainservice"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:persistent="true"
+        android:theme="@style/AppTheme">
+        <!--android:theme="@android:style/Theme.NoDisplay"  @style/AppTheme-->
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <!--category android:name="android.intent.category.LAUNCHER" /-->
+            </intent-filter>
+        </activity>
+
+        <receiver android:enabled="true" android:name=".BootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.wsstest"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".MainService" android:permission = "com.sdt.conmmonservice.mainservice">
+            <intent-filter android:priority="1000">
+                <action android:name="com.sdt.conmmonservice.mainservice"/>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

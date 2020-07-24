@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="56dp"
+        android:text="发送系统启动消息"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_runNASh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="8dp"
+        android:text="启动NA(sh)"
+        app:layout_constraintEnd_toEndOf="@+id/btn_sendTest"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sendTest" />
+
+    <Button
+        android:id="@+id/btn_runService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="88dp"
+        android:text="启动服务"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_accessShare" />
+
+    <Button
+        android:id="@+id/btn_accessShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="共享访问shareuid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_runAPK" />
+
+    <Button
+        android:id="@+id/btn_runNA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="8dp"
+        android:text="启动NA(su)"
+        app:layout_constraintEnd_toEndOf="@+id/btn_sendTest"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sendTest" />
+
+    <Button
+        android:id="@+id/btn_runAPK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="启动SDTAS_APK"
+        app:layout_constraintEnd_toEndOf="@+id/btn_send"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_send"
+        app:layout_constraintTop_toBottomOf="@+id/btn_runNASh" />
+
+    <Button
+        android:id="@+id/btn_sendTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
+        android:text="发送测试消息"
+        app:layout_constraintStart_toStartOf="@+id/btn_send"
+        app:layout_constraintTop_toBottomOf="@+id/btn_send" />
+
+    <Button
+        android:id="@+id/btn_stopService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="41dp"
+        android:text="停止服务"
+        app:layout_constraintStart_toStartOf="@+id/btn_accessShare"
+        app:layout_constraintTop_toBottomOf="@+id/btn_accessShare" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
