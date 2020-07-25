@@ -23,7 +23,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
                 <!--category android:name="android.intent.category.LAUNCHER" /-->
             </intent-filter>
         </activity>
@@ -36,7 +35,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".MainService" android:permission = "com.sdt.conmmonservice.mainservice">
+        <service android:name=".MainService" android:process="com.sdt.commonservice.MainService" >
             <intent-filter android:priority="1000">
                 <action android:name="com.sdt.conmmonservice.mainservice"/>
             </intent-filter>
