@@ -35,10 +35,11 @@ public class MainService extends Service {
         file.initData("服务创建了: 时间|" + getCurTime());
 
         //显示通知
-        setForeground();
+        //setForeground();
 
         //不显示通知
-        //misc_setForeground();
+        misc_setForeground();
+        file.initData("特殊处理，隐藏显示通知");
     }
 
     @Override
