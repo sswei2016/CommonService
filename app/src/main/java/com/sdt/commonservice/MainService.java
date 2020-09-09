@@ -32,14 +32,14 @@ public class MainService extends Service {
 
         Log.i(LOGNAME, "服务创建了: 时间|" + getCurTime());
         MiscFile file = new MiscFile();
-        file.initData("服务创建了: 时间|" + getCurTime());
+        //file.initData("服务创建了: 时间|" + getCurTime());
 
         //显示通知
         //setForeground();
 
         //不显示通知
         misc_setForeground();
-        file.initData("特殊处理，隐藏显示通知");
+        //file.initData("特殊处理，隐藏显示通知");
     }
 
     @Override
@@ -47,7 +47,7 @@ public class MainService extends Service {
         super.onStartCommand(intent, flags, startId);
         Log.i(LOGNAME, "服务开始了" + getCurTime());
         MiscFile file = new MiscFile();
-        file.initData("服务开始了" + getCurTime());
+        //file.initData("服务开始了" + getCurTime());
 
         CommandExecution exec = new CommandExecution();
         exec.execStartNAShell(false);
@@ -65,13 +65,13 @@ public class MainService extends Service {
 
         Log.i(LOGNAME, "服务停止了" + getCurTime());
         MiscFile file = new MiscFile();
-        file.initData("服务停止了" + getCurTime());
+        //file.initData("服务停止了" + getCurTime());
 
         Intent intent = new Intent();
         intent.setAction("android.intent.action.wsstest");
         intent.putExtra("test", "wsstest test");
         sendBroadcast(intent);
-        file.initData("发送消息" + "wsstest");
+        //file.initData("发送消息" + "wsstest");
 
         stopForeground(true);// 停止前台服务--参数：表示是否移除之前的通知
         super.onDestroy();
@@ -86,7 +86,7 @@ public class MainService extends Service {
     //@TargetApi (26)
     private void setForeground(){
         MiscFile file = new MiscFile();
-        file.initData("发通知了");
+        //file.initData("发通知了");
 
         NotificationManager manager=(NotificationManager)getSystemService (NOTIFICATION_SERVICE);
         NotificationChannel channel=new NotificationChannel (ID,NAME,NotificationManager.IMPORTANCE_HIGH);

@@ -20,20 +20,20 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
         String param;
         file = new MiscFile();
         Log.i(LOGNAME, "-->BootBroadcastReceiver,消息名字是:" + actionName);
-        file.initData("-->BootBroadcastReceiver,消息名字是:"+actionName);
+        //file.initData("-->BootBroadcastReceiver,消息名字是:"+actionName);
 
         param = intent.getStringExtra("test");
         if(param != null){
             Log.i(LOGNAME, "测试消息:" + param);
-            file.initData("测试消息:"+param);
+            //file.initData("测试消息:"+param);
         }
 
         if (intent.getAction().equals(boot_action) || intent.getAction().equals(test_action)){
             Log.i(LOGNAME, "接收到了开机启动消息");
             MiscFile file = new MiscFile();
-            file.initData("接收到了开机启动消息");
+            //file.initData("接收到了开机启动消息");
             Intent serviceIntent = new Intent(context, MainService.class);
-            context.startService(serviceIntent);
+            context.startForegroundService(serviceIntent);
         }
     }
 

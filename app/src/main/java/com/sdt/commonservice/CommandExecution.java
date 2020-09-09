@@ -35,7 +35,7 @@ public class CommandExecution {
         CommandExecution comm = new CommandExecution();
         int ret = comm.execCommand(shName, isRoot);
         Log.i(LOGNAME, "拉NA完毕_sh" + ret);
-        file.initData("拉NA完毕_sh" + ret);
+        //file.initData("拉NA完毕_sh" + ret);
 
     }
 
@@ -91,7 +91,7 @@ public class CommandExecution {
 
                 Log.i(LOGNAME, "执行command命令成功"+commandResult.successMsg);
                 MiscFile file = new MiscFile();
-                file.initData("执行command命令成功"+commandResult.successMsg);
+                //file.initData("执行command命令成功"+commandResult.successMsg);
                 return 0;
             }else {
                 //获取错误信息
@@ -106,7 +106,7 @@ public class CommandExecution {
                 if (process != null) process.destroy();
 
                 MiscFile file = new MiscFile();
-                file.initData("执行command命令失败"+commandResult.result + " | "+" | " + commandResult.errorMsg);
+                //file.initData("执行command命令失败"+commandResult.result + " | "+" | " + commandResult.errorMsg);
                 return -1;
             }
         } catch (IOException e) {
@@ -114,7 +114,7 @@ public class CommandExecution {
             if (errmsg != null) {
                 Log.i(LOGNAME, errmsg);
                 MiscFile file = new MiscFile();
-                file.initData("执行command失败:"+errmsg);
+                //file.initData("执行command失败:"+errmsg);
             } else {
                 e.printStackTrace();
             }
@@ -124,7 +124,7 @@ public class CommandExecution {
             if (errmsg != null) {
                 Log.i(LOGNAME, errmsg);
                 MiscFile file = new MiscFile();
-                file.initData("执行command失败:"+errmsg);
+                //file.initData("执行command失败:"+errmsg);
             } else {
                 e.printStackTrace();
             }

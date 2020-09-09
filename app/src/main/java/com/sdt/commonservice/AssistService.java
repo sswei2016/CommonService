@@ -10,7 +10,8 @@ public class AssistService extends Service {
     String LOGNAME = "CommonService";
 
     public class LocalBinder extends Binder {
-        public AssistService getService() {
+        public AssistService getService()
+        {
             return AssistService.this;
         }
     }

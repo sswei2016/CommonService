@@ -2,6 +2,7 @@ package com.sdt.commonservice;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         file = new MiscFile();
-        file.initData("mainactivity启动了");
+        //file.initData("mainactivity启动了");
 
         //获取文件权限
         PermissionUtils.isGrantExternalRW(this, 1);
@@ -52,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
         rootRet = rootAuth.getRootAhth();
         if(rootRet == true){
             file = new MiscFile();
-            file.initData("commmonservice获取了root权限");
+            //file.initData("commmonservice获取了root权限");
         }
 
         //获取系统版本
-        file.initData("版本：" + Build.VERSION.SDK_INT);
+        //file.initData("版本：" + Build.VERSION.SDK_INT);
 
         //String filePath = "/data/data/com.sdt.commonservice/";
         //String fileName = "shtest.sh";
@@ -64,13 +65,13 @@ public class MainActivity extends AppCompatActivity {
         //String shName="cd /data/data/com.sdt.commonservice && chmod 777 * && ./shtest.sh";
 
         //注册广播接收器
-        mReceive = new BootBroadcastReceiver();
+/*        mReceive = new BootBroadcastReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.wsstest");
         intentFilter.addAction("android.intent.action.BOOT_COMPLETED");
         registerReceiver(mReceive, intentFilter);
         Log.i(LOGNAME, "注册消息接收过滤器");
-        file.initData("注册消息接收过滤器");
+        //file.initData("注册消息接收过滤器");*/
 
         btn_sendBootMsg = (Button)findViewById(R.id.btn_send);
         btn_sendBootMsg.setOnClickListener(new Button.OnClickListener(){
@@ -79,10 +80,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setAction("android.intent.action.BOOT_COMPLETED");
+                intent.setComponent(new ComponentName("com.sdt.commonservice", "com.sdt.commonservice.BootBroadcastReceiver"));//Android8特性
                 intent.putExtra("test", "BOOT_COMPLETED test");
                 sendBroadcast(intent);
                 Log.i(LOGNAME, "发送消息BOOT_COMPLETED");
-                file.initData("发送消息BOOT_COMPLETED");
+                //file.initData("发送消息BOOT_COMPLETED");
             }
         });
 
@@ -93,10 +95,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setAction("android.intent.action.wsstest");
+                intent.setComponent(new ComponentName("com.sdt.commonservice", "com.sdt.commonservice.BootBroadcastReceiver"));
                 intent.putExtra("test", "wsstest test");
                 sendBroadcast(intent);
                 Log.i(LOGNAME, "发送消息wsstest");
-                file.initData("发送消息wsstest");
+                //file.initData("发送消息wsstest");
             }
         });
 
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 StartAPK start = new StartAPK();
                 start.run(getApplicationContext());
                 Log.i(LOGNAME, "启动APK完毕");
-                file.initData("启动APK完毕");
+                //file.initData("启动APK完毕");
             }
         });
 
@@ -142,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 int ret = comm.execCommand(shName, false);
                 Log.i(LOGNAME, buff.toString());
                 Log.i(LOGNAME, "访问shareuid完毕");
-                file.initData("访问shareuid完毕");
+                //file.initData("访问shareuid完毕");
             }
         });
 
@@ -198,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         MiscFile file = new MiscFile();
-        file.initData("Activity停止了");
+        //file.initData("Activity停止了");
         super.onDestroy();
     }
 }
